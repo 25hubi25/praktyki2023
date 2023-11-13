@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Palindrom</title>
+</head>
+    <body>
+        <form id="cos">
+            <label for="word">Wprowadź słowo:</label>
+            <input type="text" id="word" name="word" required>
+            <button type="submit">Sprawdź</button>
+        </form>
+        <script>
+            function isPalindrome(str) {
+                const cleanStr = str.toLowerCase().replace(/[^a-z]/g, ''); 
+                const reversedStr = cleanStr.split('').reverse().join('');
+                return cleanStr === reversedStr;
+            }
+            document.getElementById('cos').addEventListener('submit', function (event){
+                event.preventDefault();
+                const inputWord = document.getElementById('word').value;
+                if (isPalindrome(inputWord)) {
+                    alert(`Słowo "${inputWord}" to palindrom!`);
+                } 
+                else {
+                    alert(`Słowo "${inputWord}" nie jest palindrom.`);
+                }
+            });
+        </script>
+    </body>
+</html>
