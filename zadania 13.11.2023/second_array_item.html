@@ -16,14 +16,12 @@
                 const inputValue = document.getElementById('inputArray').value;
                 const inputArray = inputValue.split(',').map(item => item.trim());
                 const secondElement = findSecondElement(inputArray);
-                alert('Drugi element: ' + secondElement);
-            });
+                alert('Drugi element: ' + secondElement);});
             function findSecondElement(array) {
                 if (array.every(item => !isNaN(item))) {
                     const uniqueNumbers = Array.from(new Set(array.map(Number)));
                     const sortedNumbers = uniqueNumbers.sort((a, b) => b - a);
-                    return sortedNumbers[1];
-                } 
+                    return sortedNumbers[1]; } 
                 else {
                     const sortedStrings = array.sort((a, b) => b.length - a.length);
                     return sortedStrings[1];
