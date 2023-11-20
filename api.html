@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Śmietnik</title>
+    </head>
+    <body>
+        <script>
+const apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+let currentPostId = 1;
+const postIdElement = document.getElementById('post-id');
+const titleElement = document.getElementById('post-title');
+const bodyElement = document.getElementById('post-body');
+const prevButton = document.getElementById('prev-button');
+const nextButton = document.getElementById('next-button');
+function fetchPost(postId) {
+  fetch(`${apiUrl}/${postId}`)
+    .then(response => {
+      if (response.status === 200) {
+        return response.json();
+      } else {
+        throw new Error('Błąd pobierania danych.');
+      }
+    })
+    .then(post => {
+      postIdElement.textContent = `Post ID: ${post.id}`;
+      titleElement.textContent = `Title: ${post.title}`;
+      bodyElement.textContent = `Body: ${post.body}`;
+    })
+    .catch(error => console.error('Błąd:', error.message));
+}
+prevButton.addEventListener('click', () => {
+  if (currentPostId > 1) {
+    currentPostId--;
+    fetchPost(currentPostId);
+  }
+});
+nextButton.addEventListener('click', () => {
+  currentPostId++;
+  fetchPost(currentPostId);
+});
+fetchPost(currentPostId);
+        </script>
+    </body>
+</html>

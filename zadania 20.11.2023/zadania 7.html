@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Śmietnik</title>
+    </head>
+    <body>
+        <script>
+    const books = [
+    { title: "Harry Potter 7", pages: 301, rating: 8 },
+    { title: "Lord of the Rings", pages: 500, rating: 9 },
+    { title: "To Kill a Mockingbird", pages: 351, rating: 4 },
+    { title: "Dune 2", pages: 601, rating: 7 },
+    { title: "1984", pages: 401, rating: 6 },
+    { title: "The Great Gatsby", pages: 200, rating: 3 },
+];
+    const result = books
+    .filter((book) => book.pages % 2 !== 0 && /\d/.test(book.title) && book.rating > 5)
+    .length;
+    console.log(result);
+        </script>
+    </body>
+</html>

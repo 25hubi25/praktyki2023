@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Śmietnik</title>
+    </head>
+    <body>
+        <script>
+    function multiplyAsync(x, y) {
+    return new Promise((resolve, reject) => {
+    if (typeof x !== 'number' || typeof y !== 'number') {
+      reject(new Error('Oba argumenty powinny być liczbami.'));
+    } else {
+      resolve(x * y);
+    }
+});
+}
+    function callback(result) {
+    console.log('Wynik mnożenia:', result);
+}
+    multiplyAsync(5, 10)
+    .then(callback)
+    .catch(error => console.error('Błąd:', error.message));
+        </script>
+    </body>
+</html>
